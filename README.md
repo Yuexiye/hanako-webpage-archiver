@@ -33,7 +33,10 @@ URL → save-page（存档，返回 archiveId + 文件路径）
 ## 依赖
 
 - **Scrapling**: `pip install scrapling[all]`（三层抓取：HTTP/Playwright/Stealth 反检测）
-- **Playwright**: `playwright install chromium`（DynamicFetcher/StealthyFetcher 需要）
+- **Playwright 浏览器**（可选）: `playwright install chromium`
+  - Tier 1（纯 HTTP）不需要浏览器，可抓取大部分页面
+  - Tier 2/3（DynamicFetcher / StealthyFetcher）需要浏览器，用于 JS 渲染和 Cloudflare 绕过
+  - **不装不影响使用**，只是遇到 Cloudflare 保护页或复杂 SPA 时会降级为纯 HTTP 抓取
 - **single-file-cli**: `npm install -g single-file-cli`（单文件打包，可选）
 - **Chrome/Chromium**: SingleFile CLI 依赖
 
